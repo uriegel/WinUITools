@@ -16,6 +16,7 @@
   <ItemGroup>
     <None Remove="DataTemplate\ListDataTemplate.xaml" />
     <None Remove="HeaderTemplates\HeaderTemplate.xaml" />
+    <None Remove="Tests\ItemRepeater\ItemsRepeaterWindow.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -54,6 +55,14 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="DataTemplate\ListDataTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Tests\ItemRepeater - Kopieren\ItemsRepeaterWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Tests\ItemRepeater\ItemsRepeaterWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>

@@ -1,7 +1,10 @@
 using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 
 using System;
 using System.Reflection.PortableExecutable;
+
+using Tester.Tests.ItemRepeater;
 
 using WinUITools.ColumnViewHeaders;
 using WinUITools.DataContext;
@@ -18,32 +21,18 @@ public sealed partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
-        Grid.DataContext = new ColumnViewContext();
-        Headers.SetColumns([
-            new TextColumnViewHeader("Name"),
-            new TextColumnViewHeader("Number"),
-            new TemplatedColumnViewHeader((Grid.Resources["HeaderTemplate"] as DataTemplate)!)
-        ]);
-        Repeater.ItemsSource = (Item[])[
-                new Item { Name= "John Coltrane", Number = 312 },
-                new Item { Name= "Charlie Parker", Number = 142 },
-                new Item { Name= "Miles Davis", Number = 1223 },
-                new Item { Name= "Duke Ellington", Number = 5223 },
-                new Item { Name= "Charles Mingus", Number = 2223 },
-            ];
+    }
+
+    void Button_Click(object sender, RoutedEventArgs e)
+    {
+        var window = new ItemsRepeaterWindow();
+        window.Activate();
+    }
+
+    void Button_Click_1(object sender, RoutedEventArgs e)
+    {
+        var window = new ColumnViewWindow();
+        window.Activate();
     }
 }
 
-class Item
-{
-    public string Name
-    {
-        get;
-        set;
-    } = "";
-    public int Number
-    {
-        get;
-        set;
-    }
-}

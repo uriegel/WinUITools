@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="Tester.Tests.ItemRepeater.ItemsRepeaterWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Tester.Tests.ItemRepeater"
+    xmlns:cvh="using:WinUITools.ColumnViewHeaders"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="ItemsRepeaterWindow">
+
+    <Window.SystemBackdrop>
+        <MicaBackdrop />
+    </Window.SystemBackdrop>
+
+    <Grid Name="Grid">
+        <Grid.Resources>
+            <ResourceDictionary>
+                <ResourceDictionary.MergedDictionaries>
+                    <ResourceDictionary Source="/HeaderTemplates/HeaderTemplate.xaml" />
+                    <ResourceDictionary Source="/DataTemplate/ListDataTemplate.xaml" />
+                </ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <cvh:ColumnViewHeaders Name="Headers"/>
+        <ItemsRepeater Grid.Row="1" Name="Repeater" ItemTemplate="{StaticResource ListDataTemplate}"/>
+    </Grid>
+</Window>

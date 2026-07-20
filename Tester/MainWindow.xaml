@@ -14,20 +14,8 @@
         <MicaBackdrop />
     </Window.SystemBackdrop>
 
-    <Grid Name="Grid">
-        <Grid.Resources>
-            <ResourceDictionary>
-                <ResourceDictionary.MergedDictionaries>
-                    <ResourceDictionary Source="/HeaderTemplates/HeaderTemplate.xaml" />
-                    <ResourceDictionary Source="/DataTemplate/ListDataTemplate.xaml" />
-                </ResourceDictionary.MergedDictionaries>
-            </ResourceDictionary>
-        </Grid.Resources>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <cvh:ColumnViewHeaders Name="Headers"/>
-        <ItemsRepeater Grid.Row="1" Name="Repeater" ItemTemplate="{StaticResource ListDataTemplate}"/>
-    </Grid>
+    <StackPanel Orientation="Vertical" >
+        <Button HorizontalAlignment="Stretch" Margin="5" Click="Button_Click">ItemsRepeater</Button>
+        <Button HorizontalAlignment="Stretch" Margin="5" Click="Button_Click_1">Next</Button>
+    </StackPanel>
 </Window>
