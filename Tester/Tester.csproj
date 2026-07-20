@@ -14,6 +14,7 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="DataTemplate\ListDataTemplate.xaml" />
     <None Remove="HeaderTemplates\HeaderTemplate.xaml" />
   </ItemGroup>
 
@@ -48,6 +49,11 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="HeaderTemplates\HeaderTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="DataTemplate\ListDataTemplate.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>

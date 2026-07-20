@@ -3,6 +3,12 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media;
 
+using System.Linq;
+
+using WinRT.WinUIToolsVtableClasses;
+
+using WinUITools.DataContext;
+
 namespace WinUITools.ColumnViewHeaders;
 
 /// <summary>
@@ -28,6 +34,9 @@ public sealed partial class ColumnViewHeaders : UserControl
             Grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Star) });
             Grid.Children.Add(CreateHeader(header, col++, col == headers.Length));
         }
+
+        var context = DataContext as ColumnViewContext;
+        context?.ColumnWidths = [ ..headers.Select(n => new GridLength(1, GridUnitType.Star)) ];
     }
 
     Grid CreateHeader(ColumnViewHeader header, int col, bool last)

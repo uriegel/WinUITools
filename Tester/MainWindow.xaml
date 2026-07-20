@@ -19,6 +19,7 @@
             <ResourceDictionary>
                 <ResourceDictionary.MergedDictionaries>
                     <ResourceDictionary Source="/HeaderTemplates/HeaderTemplate.xaml" />
+                    <ResourceDictionary Source="/DataTemplate/ListDataTemplate.xaml" />
                 </ResourceDictionary.MergedDictionaries>
             </ResourceDictionary>
         </Grid.Resources>
@@ -27,6 +28,6 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <cvh:ColumnViewHeaders Name="Headers"/>
-        <ItemsRepeater Grid.Row="1" Name="Repeater"/>
+        <ItemsRepeater Grid.Row="1" Name="Repeater" ItemTemplate="{StaticResource ListDataTemplate}"/>
     </Grid>
 </Window>

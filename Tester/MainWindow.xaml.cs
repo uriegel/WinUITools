@@ -4,6 +4,7 @@ using System;
 using System.Reflection.PortableExecutable;
 
 using WinUITools.ColumnViewHeaders;
+using WinUITools.DataContext;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -17,10 +18,11 @@ public sealed partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        Grid.DataContext = new ColumnViewContext();
         Headers.SetColumns([
             new TextColumnViewHeader("Name"),
             new TextColumnViewHeader("Number"),
-            new TemplatedColumnViewHeader(Grid.Resources["HeaderTemplate"] as DataTemplate)
+            new TemplatedColumnViewHeader((Grid.Resources["HeaderTemplate"] as DataTemplate)!)
         ]);
         Repeater.ItemsSource = (Item[])[
                 new Item { Name= "John Coltrane", Number = 312 },
