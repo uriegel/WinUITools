@@ -1,10 +1,13 @@
-﻿using System;
+﻿using Microsoft.UI.Xaml;
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace WinUITools.ColumnViewHeaders;
 
-public record ColumnViewHeader
-{
-    public string? Name { get; set; }
-}
+public abstract record ColumnViewHeader;
+
+public record TextColumnViewHeader(string Name) : ColumnViewHeader;
+
+public record TemplatedColumnViewHeader(DataTemplate Template) : ColumnViewHeader;

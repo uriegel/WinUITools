@@ -1,6 +1,9 @@
 using Microsoft.UI.Xaml;
 
+using System;
 using System.Reflection.PortableExecutable;
+
+using WinUITools.ColumnViewHeaders;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -15,9 +18,10 @@ public sealed partial class MainWindow : Window
     {
         InitializeComponent();
         Headers.SetColumns([
-            new() { Name = "Name" },
-            new() { Name = "Number" }
-            ]);
+            new TextColumnViewHeader("Name"),
+            new TextColumnViewHeader("Number"),
+            new TemplatedColumnViewHeader(Grid.Resources["HeaderTemplate"] as DataTemplate)
+        ]);
         Repeater.ItemsSource = (Item[])[
                 new Item { Name= "John Coltrane", Number = 312 },
                 new Item { Name= "Charlie Parker", Number = 142 },

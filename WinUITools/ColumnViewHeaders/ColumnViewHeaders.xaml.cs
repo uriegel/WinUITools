@@ -50,12 +50,19 @@ public sealed partial class ColumnViewHeaders : UserControl
         };
         headerGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Star) });
         headerGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(0, GridUnitType.Auto) });
-        headerGrid.Children.Add(new TextBlock()
+
+        if (header is TextColumnViewHeader textHeader)
+            headerGrid.Children.Add(new TextBlock()
+            {
+                Text = textHeader.Name,
+                HorizontalAlignment = HorizontalAlignment.Stretch,
+                Margin = new Thickness(3, 0, 0, 0)
+            });
+        else if (header is TemplatedColumnViewHeader templatedHeader)
         {
-            Text = header.Name,
-            HorizontalAlignment = HorizontalAlignment.Stretch,
-            Margin = new Thickness(3, 0, 0, 0)
-        });
+            var element = templatedHeader.Template.LoadContent() as FrameworkElement;
+            headerGrid.Children.Add(element);
+        }
         if (!last)
         {
             var border = new Border()
