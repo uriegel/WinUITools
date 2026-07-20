@@ -3,18 +3,19 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media;
 
-using System;
 using System.ComponentModel;
-using System.Linq;
-using System.Reflection.PortableExecutable;
 
 using WinUITools.Data;
 using WinUITools.DataContext;
 
 namespace WinUITools.ColumnViewHeaders;
 
+// TODO: Selecte by pointer
+
+// TODO: new test client: next step: ColumnView class
+
 /// <summary>
-/// Used as root element in DtaTemplate for a ColumnView with ColumnViewHeaders and multiple DataTemplates
+/// Used as root element in DataTemplate for a ColumnView with ColumnViewHeaders and multiple DataTemplates
 /// </summary>
 public class ColumnViewItemGrid : Grid
 {
