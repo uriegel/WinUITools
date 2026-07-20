@@ -3,10 +3,32 @@
     <TargetFramework>net10.0-windows10.0.19041.0</TargetFramework>
     <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
     <RootNamespace>WinUITools</RootNamespace>
+	<Nullable>enable</Nullable>
     <UseWinUI>true</UseWinUI>
     <WinUISDKReferences>false</WinUISDKReferences>
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+	<Authors>Uwe Riegel</Authors>
+	<Company>Uwe Riegel</Company>
+	<Description>P/Invoke for CLR Applications</Description>
+	<AssemblyName>WinUITools</AssemblyName>
+	<PackageProjectUrl>https://github.com/uriegel/WinUITools</PackageProjectUrl>
+	<Version>0.0.1-beta</Version>
+	<PackageReleaseNotes>Beta</PackageReleaseNotes>
+	<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+	<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
+	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	<GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
+
+  <PropertyGroup>
+	<DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+	<None Include="..\LICENSE.txt" Pack="true" PackagePath="" />
+	<None Include="..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
   <ItemGroup>
     <None Remove="Test.xaml" />
   </ItemGroup>
