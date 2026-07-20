@@ -10,9 +10,12 @@ using WinUITools.DataContext;
 
 namespace WinUITools.ColumnViewHeaders;
 
-// TODO: Selecte by pointer
+// TODO: Select by pointer
 
+// TODO: Keyboard control
+// TODO: Template selector
 // TODO: new test client: next step: ColumnView class
+
 
 /// <summary>
 /// Used as root element in DataTemplate for a ColumnView with ColumnViewHeaders and multiple DataTemplates
