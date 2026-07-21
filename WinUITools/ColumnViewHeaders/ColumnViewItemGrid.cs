@@ -10,6 +10,7 @@ using WinUITools.DataContext;
 
 namespace WinUITools.ColumnViewHeaders;
 
+// TODO: Scroller_GotFocus
 // TODO: focus border color as resource
 // TODO: header border color as resource
 // TODO: Template selector
