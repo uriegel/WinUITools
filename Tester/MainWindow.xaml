@@ -16,6 +16,7 @@
 
     <StackPanel Orientation="Vertical" >
         <Button HorizontalAlignment="Stretch" Margin="5" Click="Button_Click">ItemsRepeater</Button>
-        <Button HorizontalAlignment="Stretch" Margin="5" Click="Button_Click_1">Next</Button>
+        <Button HorizontalAlignment="Stretch" Margin="5" Click="Button_Click_1">Navigation</Button>
+        <Button HorizontalAlignment="Stretch" Margin="5" Click="Button_Click_2">ColumnView</Button>
     </StackPanel>
 </Window>

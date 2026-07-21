@@ -17,6 +17,7 @@
     <None Remove="DataTemplate\ListDataTemplate.xaml" />
     <None Remove="HeaderTemplates\HeaderTemplate.xaml" />
     <None Remove="Tests\ItemRepeater\ItemsRepeaterWindow.xaml" />
+    <None Remove="Tests\RepeaterNavigation\RepeaterNavigation.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -63,6 +64,11 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="Tests\ItemRepeater\ItemsRepeaterWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Tests\RepeaterNavigation\RepeaterNavigation.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>

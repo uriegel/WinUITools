@@ -17,6 +17,7 @@ using Windows.Foundation;
 using Windows.Foundation.Collections;
 
 using WinUITools.ColumnViewHeaders;
+using WinUITools.Data;
 using WinUITools.DataContext;
 
 // To learn more about WinUI, the WinUI project structure,
@@ -48,7 +49,7 @@ public sealed partial class ItemsRepeaterWindow : Window
     }
 }
 
-class Item
+class Item : ColumnViewItem
 {
     public string Name
     {

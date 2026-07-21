@@ -5,6 +5,7 @@ using System;
 using System.Reflection.PortableExecutable;
 
 using Tester.Tests.ItemRepeater;
+using Tester.Tests.RepeaterNavigation;
 
 using WinUITools.ColumnViewHeaders;
 using WinUITools.DataContext;
@@ -30,6 +31,12 @@ public sealed partial class MainWindow : Window
     }
 
     void Button_Click_1(object sender, RoutedEventArgs e)
+    {
+        var window = new RepeaterNavigation();
+        window.Activate();
+    }
+
+    void Button_Click_2(object sender, RoutedEventArgs e)
     {
         var window = new ColumnViewWindow();
         window.Activate();
