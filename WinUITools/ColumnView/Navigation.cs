@@ -66,7 +66,7 @@ public class Navigation
         else if (e.Key == Windows.System.VirtualKey.PageDown)
         {
             int visibleRows = (int)(scrollViewer.ViewportHeight / GetItemsHeight());
-            focusedIndex = Math.Max(focusedIndex + visibleRows - 1, 0);
+            focusedIndex = Math.Min(focusedIndex + visibleRows - 1, GetCount() - 1);
             ScrollCurrentIntoView(focusedIndex);
             e.Handled = true;
         }

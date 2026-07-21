@@ -10,9 +10,8 @@ using WinUITools.DataContext;
 
 namespace WinUITools.ColumnViewHeaders;
 
-// TODO: Select by pointer
-
-// TODO: Keyboard control
+// TODO: focus border color as resource
+// TODO: header border color as resource
 // TODO: Template selector
 // TODO: new test client: next step: ColumnView class
 
