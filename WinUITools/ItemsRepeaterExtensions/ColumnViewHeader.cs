@@ -1,6 +1,6 @@
 ﻿using Microsoft.UI.Xaml;
 
-namespace WinUITools.ColumnViewHeaders;
+namespace WinUITools.ItemsRepeaterExtensions;
 
 /// <summary>
 /// Base class of a ColumnView Header

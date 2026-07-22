@@ -6,9 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-using WinUITools.Data;
-
-namespace WinUITools.ColumnView;
+namespace WinUITools.ItemsRepeaterExtensions;
 
 /// <summary>
 /// Keyboard navigation for ItemsRepeater using items based on ScrollViewItem

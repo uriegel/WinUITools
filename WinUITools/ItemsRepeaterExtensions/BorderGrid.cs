@@ -6,9 +6,7 @@ using Microsoft.UI.Xaml.Input;
 using System.Diagnostics;
 using System.Linq;
 
-using WinUITools.DataContext;
-
-namespace WinUITools.ColumnViewHeaders;
+namespace WinUITools.ItemsRepeaterExtensions;
 
 
 class BorderGrid : Grid

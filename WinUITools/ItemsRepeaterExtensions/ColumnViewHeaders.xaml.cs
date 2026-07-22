@@ -5,11 +5,7 @@ using Microsoft.UI.Xaml.Media;
 
 using System.Linq;
 
-using WinRT.WinUIToolsVtableClasses;
-
-using WinUITools.DataContext;
-
-namespace WinUITools.ColumnViewHeaders;
+namespace WinUITools.ItemsRepeaterExtensions;
 
 /// <summary>
 /// ColumnViewHeaders is used for an ItemsRepeater to support multiple columns
@@ -19,7 +15,11 @@ public sealed partial class ColumnViewHeaders : UserControl
     /// <summary>
     /// 
     /// </summary>
-    public ColumnViewHeaders() => InitializeComponent();
+    public ColumnViewHeaders()
+    {
+        InitializeComponent();
+        DataContext = new ColumnViewContext();
+    }
 
     /// <summary>
     /// 
@@ -36,7 +36,7 @@ public sealed partial class ColumnViewHeaders : UserControl
         }
 
         var context = DataContext as ColumnViewContext;
-        context?.ColumnWidths = [ ..headers.Select(n => new GridLength(1, GridUnitType.Star)) ];
+        context?.ColumnWidths = [.. headers.Select(n => new GridLength(1, GridUnitType.Star))];
     }
 
     Grid CreateHeader(ColumnViewHeader header, int col, bool last)

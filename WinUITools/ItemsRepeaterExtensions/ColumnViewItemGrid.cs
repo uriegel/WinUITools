@@ -4,11 +4,9 @@ using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media;
 
 using System.ComponentModel;
+using System.Linq;
 
-using WinUITools.Data;
-using WinUITools.DataContext;
-
-namespace WinUITools.ColumnViewHeaders;
+namespace WinUITools.ItemsRepeaterExtensions;
 
 // TODO: Scroller_GotFocus
 //void Context_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -57,9 +55,8 @@ public class ColumnViewItemGrid : Grid
         BorderBrush = Durchsichtig;
         BorderThickness = new Thickness(1);
         Background ??= Durchsichtig;
-        Context = FindContextFromAncestor(this);
+        Context = FindContextFromHeaderGrid(this);
         Context?.PropertyChanged += PropertyChanged;
-        Context?.ItemsHeight = ActualHeight + 2;
 
         IsTabStop = true;
 
@@ -88,7 +85,7 @@ public class ColumnViewItemGrid : Grid
     /// <param name="e"></param>
     public void PropertyChanged(object? s, PropertyChangedEventArgs e)
     {
-        if (e.PropertyName == nameof(Context.ColumnWidths))
+        if (e.PropertyName == nameof(ColumnViewContext.ColumnWidths))
         {
             int i = 0;
             foreach (var def in Context!.ColumnWidths)
@@ -96,21 +93,26 @@ public class ColumnViewItemGrid : Grid
         }
     }
 
-    internal static ColumnViewContext? FindContextFromAncestor(DependencyObject d)
+    internal static ColumnViewContext? FindContextFromHeaderGrid(DependencyObject d)
     {
         while (d != null)
         {
             d = VisualTreeHelper.GetParent(d);
 
-            if (d is FrameworkElement fe && fe.DataContext is ColumnViewContext c)
-                return c;
+            if (d is ItemsRepeater || d is ScrollViewer)
+            {
+                d = VisualTreeHelper.GetParent(d);
+                if (d is Panel panel)
+                    return (panel.Children.FirstOrDefault(n => n is ColumnViewHeaders headers) as FrameworkElement)
+                        ?.DataContext as ColumnViewContext;
+            }
         }
         return null;
     }
 
     static int actives;
+    ColumnViewContext? Context; 
 
-    internal ColumnViewContext? Context { get; private set; }
 
     public static SolidColorBrush Rot = new(Colors.Red);
     public static SolidColorBrush Grau = new(Colors.Gray);

@@ -1,4 +1,4 @@
-﻿namespace WinUITools.Data;
+﻿namespace WinUITools.ItemsRepeaterExtensions;
 
 /// <summary>
 /// Base Element type for a ColumnView

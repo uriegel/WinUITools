@@ -31,6 +31,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="ColumnViewHeaders.xaml" />
+    <None Remove="ItemsRepeaterExtensions\ColumnViewHeaders.xaml" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.28000.2270" />
@@ -38,6 +39,11 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="ColumnViewHeaders.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="ItemsRepeater\ColumnViewHeaders.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>

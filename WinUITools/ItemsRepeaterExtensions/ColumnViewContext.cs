@@ -2,14 +2,12 @@
 
 using System.ComponentModel;
 
-using WinUITools.Data;
-
-namespace WinUITools.DataContext;
+namespace WinUITools.ItemsRepeaterExtensions;
 
 /// <summary>
 /// Shared Context between ColumnView, ColumnViewHeader and DataTemplate root grid
 /// </summary>
-public class ColumnViewContext : INotifyPropertyChanged
+class ColumnViewContext : INotifyPropertyChanged
 {
     /// <summary>
     /// 
