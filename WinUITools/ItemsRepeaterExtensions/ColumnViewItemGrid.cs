@@ -8,17 +8,6 @@ using System.Linq;
 
 namespace WinUITools.ItemsRepeaterExtensions;
 
-// TODO: Scroller_GotFocus
-//void Context_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
-//{
-//    if (e.PropertyName == nameof(Context.SelectedItem))
-//    {
-//        var next = store?.GetIndex(context.SelectedItem);
-//        if (next.HasValue)
-//            ScrollCurrentIntoView(next.Value);
-//    }
-//}
-
 // TODO: focus border color as resource
 // TODO: header border color as resource
 // TODO: Template selector

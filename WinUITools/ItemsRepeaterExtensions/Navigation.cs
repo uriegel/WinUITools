@@ -5,6 +5,7 @@ using Microsoft.UI.Xaml.Input;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 
 namespace WinUITools.ItemsRepeaterExtensions;
 
@@ -23,9 +24,12 @@ public class Navigation
         this.repeater = repeater;
         this.scrollViewer = scrollViewer;
 
+        repeater.IsTabStop = false;
         repeater.KeyDown += Repeater_KeyDown;
         repeater.ElementPrepared += Repeater_ElementPrepared;
         repeater.ElementClearing += Repeater_ElementClearing;
+        scrollViewer.GettingFocus += ScrollViewer_GettingFocus;
+        scrollViewer.GotFocus += ScrollViewer_GotFocus;
     }
 
     void Repeater_ElementPrepared(ItemsRepeater sender, ItemsRepeaterElementPreparedEventArgs args)
@@ -88,6 +92,15 @@ public class Navigation
             e.Handled = true;
         }
     }
+    void ScrollViewer_GettingFocus(UIElement sender, GettingFocusEventArgs args)
+    {
+        if (repeater.TryGetElement(focusedIndex) is FrameworkElement element)
+            args.NewFocusedElement = element;
+    }
+
+    void ScrollViewer_GotFocus(object sender, RoutedEventArgs e)
+        => ScrollCurrentIntoView(focusedIndex, false, true);
+
     int GetCount()
     {
         if (repeater.ItemsSource is ColumnViewItem[] items)
@@ -101,7 +114,7 @@ public class Navigation
 
     double GetItemsHeight() => Math.Ceiling(scrollViewer.ScrollableHeight / GetCount());
 
-    void ScrollCurrentIntoView(int pos, bool toEnd = false)
+    async void ScrollCurrentIntoView(int pos, bool toEnd = false, bool delayed = false)
     {
         if (repeater.TryGetElement(pos) is FrameworkElement element)
         {
@@ -109,13 +122,17 @@ public class Navigation
             element.Focus(FocusState.Keyboard);
         }
         else
+        {
+            if (delayed)
+                await Task.Delay(10);
             scrollViewer.ChangeView(
                 null,
-                toEnd == false 
+                toEnd == false
                     ? pos * GetItemsHeight()
                     : scrollViewer.ScrollableHeight,
                 null,
-                true); // disable animation
+                !delayed); // disable animation
+        }
     }
 
     readonly ItemsRepeater repeater;

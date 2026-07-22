@@ -25,12 +25,15 @@
         </Grid.Resources>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
- 
-        <cvh:ColumnViewHeaders Name="Headers"/>
 
-        <ScrollViewer Grid.Row="1" Name="Scroller"
+        <Button>FocusTest, press Tab</Button>
+
+        <cvh:ColumnViewHeaders Name="Headers" Grid.Row="1" />
+
+        <ScrollViewer Grid.Row="2" Name="Scroller"
                   VerticalScrollBarVisibility="Auto"
                   HorizontalScrollBarVisibility="Disabled">
             <ItemsRepeater Grid.Row="1" Name="Repeater" ItemTemplate="{StaticResource ListDataTemplate}" />
