@@ -3,8 +3,6 @@ using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Input;
 
 using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 
 namespace WinUITools.ItemsRepeaterExtensions;
@@ -94,6 +92,9 @@ public class Navigation
     }
     void ScrollViewer_GettingFocus(UIElement sender, GettingFocusEventArgs args)
     {
+        if (args.OldFocusedElement == null)
+            return;
+
         if (repeater.TryGetElement(focusedIndex) is FrameworkElement element)
             args.NewFocusedElement = element;
     }
@@ -101,16 +102,7 @@ public class Navigation
     void ScrollViewer_GotFocus(object sender, RoutedEventArgs e)
         => ScrollCurrentIntoView(focusedIndex, false, true);
 
-    int GetCount()
-    {
-        if (repeater.ItemsSource is ColumnViewItem[] items)
-            return items.Length;
-        else if (repeater.ItemsSource is List<ColumnViewItem> list)
-            return list.Count;
-        else if (repeater.ItemsSource is ObservableCollection<ColumnViewItem> coll)
-            return coll.Count;
-        else return 0;
-    }
+    int GetCount() => repeater.ItemsSourceView?.Count ?? 0;
 
     double GetItemsHeight() => Math.Ceiling(scrollViewer.ScrollableHeight / GetCount());
 
