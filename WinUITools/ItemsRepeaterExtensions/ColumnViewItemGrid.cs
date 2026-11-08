@@ -103,9 +103,21 @@ public class ColumnViewItemGrid : Grid
     ColumnViewContext? Context; 
 
 
+    /// <summary>
+    /// Red brush
+    /// </summary>
     public static SolidColorBrush Rot = new(Colors.Red);
+    /// <summary>
+    /// Gray brush
+    /// </summary>
     public static SolidColorBrush Grau = new(Colors.Gray);
+    /// <summary>
+    /// Transparent brush
+    /// </summary>
     public static SolidColorBrush Durchsichtig = new(Colors.Transparent);
+    /// <summary>
+    /// Gray brush
+    /// </summary>
     public static SolidColorBrush DurchsichtigCurrent = new(Colors.LightGray);
 }
 
